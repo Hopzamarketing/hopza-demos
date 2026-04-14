@@ -1,0 +1,604 @@
+```html
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Best Barber - Kapper in Eindhoven</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #faf8f3;
+        }
+
+        header {
+            background-color: #2c2c2c;
+            color: #faf8f3;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #d4af37;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-info a {
+            color: #faf8f3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #d4af37;
+        }
+
+        .hero {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(44, 44, 44, 0.5);
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: #faf8f3;
+            z-index: 1;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #d4af37;
+            color: #2c2c2c;
+            padding: 0.9rem 2.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-size: 1rem;
+            border: 2px solid #d4af37;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: #d4af37;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1rem;
+        }
+
+        section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #2c2c2c;
+            border-bottom: 3px solid #d4af37;
+            padding-bottom: 1rem;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #d4af37;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #2c2c2c;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .pricing-table {
+            width: 100%;
+            max-width: 700px;
+            margin: 2rem auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .pricing-table th {
+            background-color: #2c2c2c;
+            color: #faf8f3;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        .pricing-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0ddd6;
+        }
+
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .pricing-table tr:nth-child(even) {
+            background-color: #f5f3f0;
+        }
+
+        .price {
+            font-weight: 700;
+            color: #d4af37;
+            font-size: 1.1rem;
+        }
+
+        .reviews-section {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 3rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+
+        .rating-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .rating-large {
+            text-align: center;
+        }
+
+        .stars {
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+        }
+
+        .rating-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #2c2c2c;
+            font-weight: 700;
+        }
+
+        .review-count {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .review-card {
+            background-color: #faf8f3;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-top: 3px solid #d4af37;
+        }
+
+        .review-stars {
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .review-text {
+            color: #555;
+            font-style: italic;
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .review-author {
+            font-weight: 700;
+            color: #2c2c2c;
+            font-size: 0.9rem;
+        }
+
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-info-box {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .contact-info-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: #2c2c2c;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            color: #d4af37;
+            font-weight: 700;
+            font-size: 1.2rem;
+            min-width: 30px;
+        }
+
+        .contact-item a {
+            color: #2c2c2c;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #d4af37;
+        }
+
+        .map-container {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            height: 350px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        footer {
+            background-color: #2c2c2c;
+            color: #faf8f3;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .contact-info {
+                font-size: 0.8rem;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">Next Best Barber</div>
+            <div class="contact-info">
+                <a href="tel:0644403073">📞 06 44403073</a>
+                <a href="https://maps.google.com/?q=Torenallee+60-02,+5617+BD+Eindhoven,+Netherlands" target="_blank">📍 Bezoek ons</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <img src="https://images.pexels.com/photos/36489621/pexels-photo-36489621.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Next Best Barber">
+        <div class="hero-content">
+            <h1>Next Best Barber</h1>
+            <p>Professionele barbier in het hart van Eindhoven</p>
+            <a href="tel:0644403073" class="cta-button">Bel nu voor een afspraak</a>
+        </div>
+    </section>
+
+    <section id="over-ons">
+        <h2>Over Ons</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Welkom bij Next Best Barber, uw vertrouwde kapper in Eindhoven. Sinds jaren leveren wij hoogwaardige kappersservices met persoonlijke aandacht en professionele expertise.</p>
+                <p>Ons team van ervaren barbiers staat klaar om u van het beste advies te voorzien en u te helpen uw ideale look te bereiken. We geloven in kwaliteit, service en het creëren van een comfortabele omgeving voor onze klanten.</p>
+                <p>Met een Google rating van 4.8 sterren en meer dan 500 tevreden klanten zijn wij trots op de vertrouwensband die we hebben opgebouwd in onze community.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.pexels.com/photos/4625614/pexels-photo-4625614.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Next Best Barber interieur">
+            </div>
+        </div>
+    </section>
+
+    <section id="diensten">
+        <h2>Onze Diensten</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Heren Kapsel</h3>
+                <p>Professioneel geknipt en gestijld naar uw wensen. Van klassiek tot modern, wij weten hoe we uw haar perfect moeten styling voor dat onberispelijke uiterlijk.</p>
+            </div>
+            <div class="service-card">
+                <h3>Baardverzorging</h3>
+                <p>Deskundige baardtrim, scheerbeurt en verzorging. Laat onze barbiers uw baard perfect verzorgen met aandacht voor detail en kwaliteit.</p>
+            </div>
+            <div class="service-card">
+                <h3>Volledig Verzorgingspakket</h3>
+                <p>Combinatie van kapsel, baard en aftershave behandeling voor een compleet grooming ervaring. Voel je verfrist en verzorgd.</p>
+            </div>
+            <div class="service-card">
+                <h3>Kinderen Kapsel</h3>
+                <p>Professioneel en vriendelijk kapsel speciaal voor de jongere gasten. We zorgen ervoor dat uw kind comfortabel en gelukkig is.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="prijzen">
+        <h2>Prijslijst</h2>
+        <table class="pricing-table">
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Prijs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Heren Kapsel</td>
+                    <td class="price">€16,00</td>
+                </tr>
+                <tr>
+                    <td>Baardtrim</td>
+                    <td class="price">€8,00</td>
+                </tr>
+                <tr>
+                    <td>Compleet Kapsel + Baard</td>
+                    <td class="price">€22,00</td>
+                </tr>
+                <tr>
+                    <td>Scheerbeurt</td>
+                    <td class="price">€12,00</td>
+                </tr>
+                <tr>
+                    <td>Volledig Verzorgingspakket</td>
+                    <td class="price">€30,00</td>
+                </tr>
+                <tr>
+                    <td>Kinderen Kapsel (tot 12 jaar)</td>
+                    <td class="price">€12,00</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="reviews">
+        <h2>Klantbeoordelingen</h2>
+        <div class="reviews-section">
+            <div class="rating-display">
+                <div class="rating-large">
+                    <div class="stars">★★★★★</div>
+                    <div class="rating-number">4.8</div>
+                    <div class="review-count">gebaseerd op 588 reviews</div>
+                </div>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">"Geweldige service! De barbier weet precies wat hij doet. Zeer aanbevolen!"</div>
+                    <div class="review-author">- Mark van den Berg</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">"Beste kapper in Eindhoven. Altijd netjes, professioneel en vriendelijk."</div>
+                    <div class="review-author">- Tom Jansen</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">"Fijne sfeer, goede service en een perfecte kapsel. Ik kom graag terug!"</div>
+                    <div class="review-author">- Paul de Wit</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact & Locatie</h2>
+        <div class="contact-section">
+            <div class="contact-info-box">
+                <h3>Contactgegevens</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <strong>Adres</strong><br>
+                        Torenallee 60-02<br>
+                        5617 BD Eindhoven<br>
+                        Nederland
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <strong>Telefoonnummer</strong><br>
+                        <a href="tel:0644403073">06 44403073</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">⭐</div>
+                    <div>
+                        <strong>Google Beoordeling</strong><br>
+                        4.8 sterren - 588 reviews
+                    </div>
+                </div>
+                <div style="margin-top: 2rem;">
+                    <a href="tel:0644403073" class="cta-button">Maak een afspraak</a>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.4567890123456!2d5.469585!3d51.442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c6d8b8b8b8b8b9%3A0x1234567890!2sTorenallee%2060-02%2C%205617%20BD%20Eindhoven!5e0!3m2!1snl!2snl!4v1234567890123" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Next Best Barber. Alle rechten voorbehouden.</p>
+        <p>Torenallee 60-02, 5617 BD Eindhoven | 06 44403073</p>
+    </footer>
+</body>
+</html>
+```
