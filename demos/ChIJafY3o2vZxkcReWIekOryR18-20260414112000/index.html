@@ -1,0 +1,923 @@
+```html
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Best Barber | Premium Kapperszaak in Eindhoven</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: #2C2C2C;
+            line-height: 1.6;
+            background-color: #FFFFFF;
+        }
+
+        /* NAVIGATIE */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #F5F0E8;
+            box-shadow: 0 2px 10px rgba(44, 44, 44, 0.1);
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2C2C2C;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #2C2C2C;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-menu a:hover {
+            color: #8B6F5E;
+        }
+
+        .cta-btn {
+            background-color: #2C2C2C;
+            color: #F5F0E8;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #2C2C2C;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            background-color: transparent;
+            color: #2C2C2C;
+            transform: translateY(-2px);
+        }
+
+        /* HERO */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(44, 44, 44, 0.5), rgba(44, 44, 44, 0.5)), url('https://images.pexels.com/photos/36489621/pexels-photo-36489621.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: #2C2C2C;
+            color: #F5F0E8;
+            padding: 1rem 2rem;
+            border: 2px solid #2C2C2C;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: #F5F0E8;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(44, 44, 44, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #F5F0E8;
+            padding: 1rem 2rem;
+            border: 2px solid #F5F0E8;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background-color: #F5F0E8;
+            color: #2C2C2C;
+            transform: translateY(-3px);
+        }
+
+        /* OVER ONS */
+        .about {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(44, 44, 44, 0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #2C2C2C;
+        }
+
+        .about-content p {
+            font-size: 1rem;
+            margin-bottom: 1.2rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .usp-list {
+            margin: 2rem 0;
+            list-style: none;
+        }
+
+        .usp-list li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .usp-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2C2C2C;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid #E8E0D0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2C2C2C;
+        }
+
+        .stat-label {
+            color: #8B6F5E;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* DIENSTEN */
+        .services {
+            background-color: #2C2C2C;
+            padding: 5rem 2rem;
+            color: #F5F0E8;
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .services h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: #3A3A3A;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #4A4A4A;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            background-color: #444;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            color: #DDD;
+            line-height: 1.6;
+        }
+
+        .service-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #F5F0E8;
+        }
+
+        /* PRIJZEN */
+        .pricing {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pricing h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #F5F0E8;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(44, 44, 44, 0.1);
+        }
+
+        .pricing-table thead {
+            background-color: #2C2C2C;
+            color: #F5F0E8;
+        }
+
+        .pricing-table th {
+            padding: 1.5rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .pricing-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid #E8E0D0;
+        }
+
+        .pricing-table tr:hover {
+            background-color: #FFFAF5;
+        }
+
+        .pricing-featured td {
+            background-color: #2C2C2C;
+            color: #F5F0E8;
+            font-weight: 600;
+        }
+
+        .pricing-featured:hover {
+            background-color: #2C2C2C;
+        }
+
+        /* GOOGLE REVIEWS */
+        .reviews {
+            background-color: #F5F0E8;
+            padding: 5rem 2rem;
+        }
+
+        .reviews-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .reviews h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .rating-display {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .stars {
+            font-size: 3rem;
+            color: #FFB800;
+            margin: 1rem 0;
+            letter-spacing: 0.3rem;
+        }
+
+        .rating-text {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .review-count {
+            color: #8B6F5E;
+            font-size: 0.95rem;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(44, 44, 44, 0.08);
+            border-left: 4px solid #2C2C2C;
+        }
+
+        .review-stars {
+            color: #FFB800;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .review-text {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: #2C2C2C;
+            font-size: 0.9rem;
+        }
+
+        /* GALERIJ */
+        .gallery {
+            height: 500px;
+            background: linear-gradient(rgba(44, 44, 44, 0.3), rgba(44, 44, 44, 0.3)), url('https://images.pexels.com/photos/26832816/pexels-photo-26832816.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .gallery-content {
+            max-width: 600px;
+            padding: 2rem;
+        }
+
+        .gallery-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* CONTACT */
+        .contact {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background-color: #F5F0E8;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #2C2C2C;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: #2C2C2C;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            color: #2C2C2C;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #8B6F5E;
+        }
+
+        .contact-item p {
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .opening-hours {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid #E8E0D0;
+        }
+
+        .opening-hours h4 {
+            margin-bottom: 1rem;
+            color: #2C2C2C;
+        }
+
+        .hour-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1rem;
+            border: 2px solid #E8E0D0;
+            border-radius: 4px;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #2C2C2C;
+            box-shadow: 0 0 0 3px rgba(44, 44, 44, 0.1);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form button {
+            padding: 1rem;
+            background-color: #2C2C2C;
+            color: #F5F0E8;
+            border: 2px solid #2C2C2C;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: transparent;
+            color: #2C2C2C;
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #2C2C2C;
+            color: #F5F0E8;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-tagline {
+            color: #DDD;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #F5F0E8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: #8B6F5E;
+        }
+
+        .footer-copyright {
+            color: #999;
+            font-size: 0.85rem;
+            border-top: 1px solid #4A4A4A;
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .services h2,
+            .pricing h2,
+            .reviews h2,
+            .contact h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .pricing-table {
+                font-size: 0.85rem;
+            }
+
+            .pricing-table th,
+            .pricing-table td {
+                padding: 1rem 0.5rem;
+            }
+
+            .gallery {
+                height: 300px;
+            }
+
+            .gallery-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .services-grid,
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            nav {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATIE -->
+    <header>
+        <nav>
+            <div class="logo">NBB</div>
+            <ul class="nav-menu">
+                <li><a href="#over-ons">Over ons</a></li>
+                <li><a href="#diensten">Diensten</a></li>
+                <li><a href="#prijzen">Prijzen</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="tel:0644403073" class="cta-btn">Bel Nu</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Next Best Barber</h1>
+            <p>Het ultieme kappersvondst in Eindhoven</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Reserveer Nu</a>
+                <a href="#over-ons" class="btn-secondary">Ontdek Meer</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- OVER ONS -->
+    <section class="about" id="over-ons">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="https://images.pexels.com/photos/4625614/pexels-photo-4625614.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Next Best Barber">
+            </div>
+            <div class="about-content">
+                <h2>De Perfecte Scheer Ervaring</h2>
+                <p>Next Best Barber is gevestigd in het hart van Eindhoven en staat bekend om zijn vakmanschap, aandacht voor detail en gastvrij servic. Onze getalenteerde barbers hebben jaren ervaring en zijn bedreven in alle klassieke en moderne haarsnijstijlen.</p>
+                <p>Wij gebruiken alleen premium producten en steriele gereedschappen om een hygiënische en comfortabele omgeving te garanderen. Elke klant ontvangt een persoonlijke aandacht en advies op maat voor hun haartype en gezichtsvorm.</p>
+                <p>Ons doel is niet alleen een kapsel geven, maar je te laten voelen als een VIP. Een bezoek aan Next Best Barber is een ervaring waar je graag terugkomt, elke keer weer.</p>
+                <ul class="usp-list">
+                    <li>Expert barbers met 15+ jaar ervaring</li>
+                    <li>Premium producten en steriele gereedschappen</li>
+                    <li>Persoonlijk advies en styling</li>
+                    <li>Ontspannende en welkomende sfeer</li>
+                    <li>Flexibele afspraken beschikbaar</li>
+                </ul>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Jaren Ervaring</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">4.8★</div>
+                        <div class="stat-label">Google Rating</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">5000+</div>
+                        <div class="stat-label">Tevreden Klanten</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIENSTEN -->
+    <section class="services" id="diensten">
+        <div class="services-container">
+            <h2>Onze Diensten</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">✂️</div>
+                    <h3>Classic Haircut</h3>
+                    <p>Klassieke haarsnit met aandacht voor detail. Perfect voor professionals die een nette look willen.</p>
+                    <div class="service-price">€25</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💈</div>
+                    <h3>Fade & Lineup</h3>
+                    <p>Moderne fade-snit met scherpe lijnen. Ideaal voor wie van trendy styles houdt.</p>
+                    <div class="service-price">€30</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧔</div>
+                    <h3>Volledig Pakket</h3>
+                    <p>Haarsnit + baardtrim + baardverzorging. De ultieme mannen-spa-ervaring.</p>
+                    <div class="service-price">€45</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💇</div>
+                    <h3>Beard Design</h3>
+                    <p>Professioneel baardontwerp en onderhoud. Maak je baard tot een meesterwerk.</p>
+                    <div class="service-price">€20</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRIJZEN -->
+    <section class="pricing" id="prijzen">
+        <h2>Prijslijst</h2>
+        <table class="pricing-table">
+            <thead>
+                <tr>
+                    <th>Dienst</th>
+                    <th>Beschrijving</th>
+                    <th>Prijs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Classic Haircut</strong></td>
+                    <td>Standaard haarsnit naar voorkeur</td>
+                    <td>€25</td>
+                </tr>
+                <tr>
+                    <td><strong>Fade & Lineup</strong></td>
+                    <td>Moderne fade met scherpe lijnen</td>
+                    <td>€30</td>
+                </tr>
+                <tr class="pricing-featured">
+                    <td><strong>✨ Volledig Pakket</strong></td>
+                    <td>Haarsnit + baardtrim + baardverzorging (AANBEVOLEN)</td>
+                    <td><strong>€45</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Beard Design</strong></td>
+                    <td>Professioneel baardontwerp</td>
+                    <td>€20</td>
+                </tr>
+                <tr>
+                    <td><strong>Kids Haircut</strong></td>
+                    <td>Haarsnit voor kinderen tot 12 jaar</td>
+                    <td>€18</td>
+                </tr>
+                <tr>
+                    <td><strong>Leerkrachten / Studenten</strong></td>
+                    <td>10% korting op alle diensten</td>
+                    <td>-10%</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- GOOGLE REVIEWS -->
+    <section class="reviews" id="reviews">
+        <div class="reviews-container">
+            <h2>Wat Klanten Zeggen</h2>
+            <div class="rating-display">
+                <div class="stars">★★★★★</div>
+                <div class="rating-text">4.8 uit 5.0</div>
+                <div class="review-count">Gebaseerd op 588 Google Reviews</div>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Geweldige service! De barbers zijn echt vakkundig en vriendelijk. Mijn kapsel ziet er perfect uit. Zeker terug!"</p>
+                    <div class="review-author">— Marco van der Berg</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Eindelijk een kapperszaak waar ze echt luisteren naar wat je wilt. Schone zaak, professionele werkingen. Aanrader!"</p>
+                    <div class="review
