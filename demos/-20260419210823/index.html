@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elektro Diensten - Professionele Elektriciteit</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Kleuren schema - Elektro branche */
+        :root {
+            --primary: #1A2744;
+            --accent: #E8620A;
+            --secondary: #2C3E50;
+            --light: #F8F9FA;
+            --white: #FFFFFF;
+            --dark: #1A1A1A;
+            --text-light: #666666;
+        }
+
+        /* HEADER / NAVIGATIE */
+        header {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: -1px;
+        }
+
+        .logo-icon {
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        .cta-btn {
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            background: #D4550A;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(232, 98, 10, 0.3);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(26, 39, 68, 0.5), rgba(26, 39, 68, 0.5)), 
+                        url('https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #FFE5CC;
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #D4550A;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(232, 98, 10, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--white);
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* OVER ONS SECTION */
+        .about {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-content h2 {
+            font-size: 2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .usp-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .usp-list li {
+            padding: 0.7rem 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .usp-list li:before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid #EEE;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+        }
+
+        /* DIENSTEN SECTION */
+        .services {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 4rem 2rem;
+            color: var(--white);
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services .section-title {
+            color: var(--white);
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(232, 98, 10, 0.2);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .service-price {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* PRIJZEN SECTION */
+        .pricing {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+
+        .pricing-table th,
+        .pricing-table td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid #EEE;
+        }
+
+        .pricing-table th {
+            background: var(--light);
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .pricing-table tr:hover {
+            background: #FAFAFA;
+        }
+
+        .pricing-recommended {
+            background: var(--light);
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .pricing-badge {
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        /* REVIEWS SECTION */
+        .reviews {
+            background: var(--light);
+            padding: 4rem 2rem;
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .rating-display {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .big-rating {
+            font-size: 4rem;
+            margin: 1rem 0;
+            letter-spacing: 2px;
+            color: var(--accent);
+        }
+
+        .rating-text {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .review-card:hover {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .review-stars {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .review-text {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* GALERIJ SECTION */
+        .gallery {
+            height: 500px;
+            background: linear-gradient(rgba(26, 39, 68, 0.4), rgba(26, 39, 68, 0.4)), 
+                        url('https://images.pexels.com/photos/7285975/pexels-photo-7285975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') center/cover;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .gallery-content h2 {
+            font-size: 2.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.3rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .contact-item a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary);
+        }
+
+        .contact-item p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.8rem;
+            border: 1px solid #DDD;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(232, 98, 10, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            background: var(--accent);
+            color: var(--white);
+            padding: 1rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .form-submit:hover {
+            background: #D4550A;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(232, 98, 10, 0.3);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .footer-section p {
+            color: #AAA;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #AAA;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .nav-menu {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .about-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 1rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+            }
+
+            .hero-content h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero-content p {
+                font-size: 0.85rem;
+            }
+
+            .pricing-table {
+                font-size: 0.85rem;
+            }
+
+            .pricing-table th,
+            .pricing-table td {
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER / NAVIGATIE -->
+    <header>
+        <nav>
+            <div class="logo"><span class="logo-icon">⚡</span>ElektroTech</div>
+            <ul class="nav-menu">
+                <li><a href="#about">Over ons</a></li>
+                <li><a href="#services">Diensten</a></li>
+                <li><a href="#pricing">Prijzen</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="cta-btn">Bel ons</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ElektroTech</h1>
+            <p>Professionele elektriciteitswerk voor uw thuis en bedrijf</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView()">Gratis offerte</button>
+                <button class="btn-secondary" onclick="document.getElementById('services').scrollIntoView()">Onze diensten</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- OVER ONS SECTION -->
+    <section class="about" id="about">
+        <h2 class="section-title">Over ElektroTech</h2>
+        <div class="about-container">
+            <div class="about-image">
+                <img src="https://images.pexels.com/photos/7867329/pexels-photo-7867329.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Elektro diensten">
+            </div>
+            <div class="about-content">
+                <h2>Uw betrouwbare elektricien</h2>
+                <p>Sinds 2005 voorzien we klanten in de regio van hoogwaardige elektriciteitswerk. Met meer dan 18 jaar ervaring en een team van gecertificeerde monteurs, garanderen we vakmanschap van de hoogste kwaliteit.</p>
+                <p>Of het gaat om woningen, kantoren of industriële installaties – we leveren professionele oplossingen die voldoen aan alle geldende normen en regelgeving.</p>
+                
+                <ul class="usp-list">
+                    <li>24/7 Spoedreparaties beschikbaar</li>
+                    <li>Gecertificeerde elektriciens met jaren ervaring</li>
+                    <li>Transparante prijzen zonder verborgen kosten</li>
+                    <li>Garantie op al ons werk</li>
+                    <li>Snelle responstijd in uw omgeving</li>
+                </ul>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">18+</div>
+                        <div class="stat-label">Jaar ervaring</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2500+</div>
+                        <div class="stat-label">Tevreden klanten</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Garantie</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIENSTEN SECTION -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <h2 class="section-title">Onze Diensten</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-icon">🏠</span>
+                    <h3>Huisinstallatie</h3>
+                    <p>Volledige elektriciteitsinstallatie voor huizen, inclusief vernieuwing en uitbreiding van bestaande installaties.</p>
+                    <div class="service-price">Vanaf €800</div>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🔧</span>
+                    <h3>Onderhoud & Reparatie</h3>
+                    <p>Snelle reparaties van elektrische storingen, vervangen van defecte onderdelen en regelmatig onderhoud.</p>
+                    <div class="service-price">€75/uur</div>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">💡</span>
+                    <h3>Verlichting</h3>
+                    <p>Installatie van moderne LED-verlichting, spotjes, hangende armaturen en smart home verlichting systemen.</p>
+                    <div class="service-price">Vanaf €200</div>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">⚙️</span>
+                    <h3>Bedrijfsinstallatie</h3>
+                    <p>Professionele elektriciteitswerk voor kantoren en bedrijven met focus op efficiëntie en veiligheid.</p>
+                    <div class="service-price">Offerte</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRIJZEN SECTION -->
+    <section class="pricing" id="pricing">
+        <h2 class="section-title">Onze Prijzen</h2>
+        <table class="pricing-table">
+            <thead>
+                <tr>
+                    <th>Dienst</th>
+                    <th>Beschrijving</th>
+                    <th>Prijs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Storingdienst</td>
+                    <td>Spoedreparatie elektrische storing</td>
+                    <td>€75/uur + materiaal</td>
+                </tr>
+                <tr class="pricing-recommended">
+                    <td>Controlekeuring <span class="pricing-badge">Aanbevolen</span></td>
+                    <td>Jaarlijkse veiligheidscontrole van installatie</td>
+                    <td>€150</td>
+                </tr>
+                <tr>
+                    <td>Stopcontacten plaatsen</td>
+                    <td>Per extra stopcontact inclusief verdozing</td>
+                    <td>€85</td>
+                </tr>
+                <tr>
+                    <td>Lichtschakelaar plaatsen</td>
+                    <td>Installatie van nieuwe lichtschakelaar</td>
+                    <td>€65</td>
+                </tr>
+                <tr>
+                    <td>Kastverniewing</td>
+                    <td>Volledige vernieuwing elektrakast met aardlekbeveiliging</td>
+                    <td>€1200-1800</td>
+                </tr>
+                <tr>
+                    <td>LED-verlichting</td>
+                    <td>Installatie compleet LED-verlichtingssysteem</td>
+                    <td>€300-600</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section class="reviews">
+        <div class="reviews-container">
+            <h2 class="section-title">Wat zeggen onze klanten?</h2>
+            <div class="rating-display">
+                <div class="big-rating">★★★★★</div>
+                <div class="rating-text">4.9 uit 5 sterren • Gebaseerd op 247 beoordelingen</div>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Uitmuntende service! De monteur was punctueel, professioneel en het werk was van topkwaliteit. Ze hebben mijn kastvernieuwing vakkundig uitgevoerd en alles werkt perfect."</p>
+                    <div class="review-author">- Jan Vermeulen</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Ik had een noodreparatie nodig en ElektroTech kwam binnen een uur ter plaatse. Zeer professioneel en competitive prijs. Zeker een aanrader!"</p>
+                    <div class="review-author">- Maria Hendriks</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Voor mijn bedrijf hebben zij een compleet verlichtingssysteem geïnstalleerd. Zeer goed afgestemd op onze behoeften en fantastisch gedaan. Snel, netjes en betrouwbaar."</p>
+                    <div class="review-author">- Dirk Oost</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIJ SECTION -->
