@@ -1,0 +1,330 @@
+```html
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesut Pulse20 - EMS Training Studio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
+    
+    /* NAV */
+    nav { position: fixed; top: 0; width: 100%; background: #fff; z-index: 1000; transition: box-shadow 0.3s; }
+    nav.shadow { box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .nav-container { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.5rem; font-weight: 700; color: #e74c3c; }
+    .nav-links { display: none; gap: 2rem; }
+    .nav-links a { text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s; }
+    .nav-links a:hover { color: #e74c3c; }
+    #hamburger { display: block; background: none; border: none; cursor: pointer; font-size: 1.5rem; }
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+      #hamburger { display: none; }
+    }
+    
+    /* MOBILE MENU */
+    .mobile-menu { position: fixed; top: 0; left: -100%; width: 100%; height: 100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); z-index: 999; transition: left 0.3s; padding-top: 6rem; }
+    .mobile-menu.active { left: 0; }
+    .mobile-menu a { display: block; color: #fff; text-decoration: none; padding: 1rem 2rem; font-size: 1.2rem; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.2); }
+    
+    /* GENERAL */
+    section { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
+    h1 { font-size: 3rem; margin-bottom: 1rem; }
+    h2 { font-size: 2.2rem; margin-bottom: 1.5rem; color: #222; }
+    h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+    p { margin-bottom: 1rem; color: #666; }
+    .cta-btn { display: inline-block; background: #e74c3c; color: #fff; padding: 0.8rem 2rem; border-radius: 4px; text-decoration: none; font-weight: 600; transition: background 0.3s; border: none; cursor: pointer; font-size: 1rem; }
+    .cta-btn:hover { background: #c0392b; }
+    
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/32131084/pexels-photo-32131084.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+    .hero-content h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+    .hero-content p { font-size: 1.3rem; margin-bottom: 2rem; color: #ddd; }
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      .hero-content h1 { font-size: 2rem; }
+      .hero-content p { font-size: 1rem; }
+    }
+    
+    /* ABOUT */
+    #about { background: #f9f9f9; }
+    .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .about-container img { width: 100%; border-radius: 8px; }
+    @media (max-width: 768px) {
+      .about-container { grid-template-columns: 1fr; }
+    }
+    
+    /* SERVICES */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .service-card { background: #fff; padding: 2rem; border-radius: 8px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.3s; }
+    .service-card:hover { transform: translateY(-5px); }
+    .service-card svg { width: 48px; height: 48px; margin-bottom: 1rem; color: #e74c3c; }
+    @media (max-width: 768px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+    
+    /* USP */
+    #usp { background: #f9f9f9; }
+    .usp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .usp-item { text-align: center; }
+    .usp-item svg { width: 56px; height: 56px; margin-bottom: 1rem; color: #e74c3c; }
+    @media (max-width: 768px) {
+      .usp-grid { grid-template-columns: 1fr; }
+    }
+    
+    /* CONTACT */
+    .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    #contactForm { background: #f5f5f5; padding: 2rem; border-radius: 8px; }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+    .form-group input, .form-group textarea { width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; font-size: 1rem; }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .contact-info { display: flex; flex-direction: column; gap: 2rem; }
+    .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .contact-item svg { width: 24px; height: 24px; margin-top: 0.2rem; flex-shrink: 0; color: #e74c3c; }
+    .contact-item p { margin: 0; }
+    .contact-item a { color: #e74c3c; text-decoration: none; }
+    #map { border-radius: 8px; margin-top: 2rem; }
+    @media (max-width: 768px) {
+      .contact-container { grid-template-columns: 1fr; }
+    }
+    
+    /* FOOTER */
+    footer { background: #222; color: #fff; padding: 3rem 2rem 1rem; text-align: center; }
+    .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 2rem; }
+    .footer-col h4 { margin-bottom: 1rem; color: #e74c3c; }
+    .footer-col p, .footer-col a { font-size: 0.9rem; color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; }
+    .footer-col a:hover { color: #e74c3c; }
+    .footer-copyright { border-top: 1px solid #444; padding-top: 1.5rem; font-size: 0.85rem; color: #999; }
+    @media (max-width: 768px) {
+      .footer-content { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <div class="logo">Mesut Pulse20</div>
+      <div class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#about">Over ons</a>
+        <a href="#services">Diensten</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button id="hamburger">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#hero">Home</a>
+    <a href="#about">Over ons</a>
+    <a href="#services">Diensten</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Mesut Pulse20</h1>
+      <p>Intensieve EMS Training in slechts 20 minuten. Persoonlijke begeleiding, maximaal 1 op 2.</p>
+      <a href="#contact" class="cta-btn">Neem contact op</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>Over ons</h2>
+    <div class="about-container">
+      <img src="https://images.pexels.com/photos/28123706/pexels-photo-28123706.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="EMS Training">
+      <div>
+        <p>Welkom bij Mesut Pulse20, uw premium EMS training studio. We bieden gespecialiseerde elektromuscular stimulation training die in slechts 20 minuten maximale resultaten oplevert. Onze trainingen zijn intensief, efficiënt en volledig gepersonaliseerd.</p>
+        <p>Met personal training voor maximaal 2 personen per sessie, garanderen we persoonlijke aandacht en begeleiding. Of u nu 1 of 2 keer per week traint, onze ervaren trainers zorgen ervoor dat u optimale resultaten bereikt met minimale tijdsinvestering. EMS training is de toekomst van fitness.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <h2>Onze Diensten</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+        <h3>20 Min Training</h3>
+        <p>Intensieve EMS sessies van slechts 20 minuten, ontworpen voor maximale effectiviteit.</p>
+      </div>
+      <div class="service-card">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11z"/>
+        </svg>
+        <h3>Personal Training</h3>
+        <p>1 op 1 of 1 op 2 training met volledige persoonlijke begeleiding door ervaren trainers.</p>
+      </div>
+      <div class="service-card">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        <h3>Flexibele Schema's</h3>
+        <p>Train 1 of 2 keer per week, volledig afgestemd op uw persoonlijke schema en doelen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- USP -->
+  <section id="usp">
+    <h2>Waarom Kiezen voor Mesut Pulse20?</h2>
+    <div class="usp-grid">
+      <div class="usp-item">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+        </svg>
+        <h3>Snelle Resultaten</h3>
+        <p>Sterke spieropbouw en vetverbranding in slechts 20 minuten per sessie.</p>
+      </div>
+      <div class="usp-item">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+        <h3>Wetenschappelijk Bewezen</h3>
+        <p>EMS training is bewezen effectief voor spierkracht, uithoudingsvermogen en gezondheid.</p>
+      </div>
+      <div class="usp-item">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+        <h3>Persoonlijke Begeleiding</h3>
+        <p>Maximaal 2 deelnemers per sessie voor optimale aandacht en veiligheid.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-container">
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Naam</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Telefoon</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Bericht</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="cta-btn">Versturen</button>
+      </form>
+      <div class="contact-info">
+        <div class="contact-item">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <div>
+            <p><strong>Telefoon</strong></p>
+            <a href="tel:+31642152526">+31 6 42152526</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <div>
+            <p><strong>Email</strong></p>
+            <a href="mailto:mesut.esinti3@gmail.com">mesut.esinti3@gmail.com</a>
+          </div>
+        </div>
+        <div id="map">
+          <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=4.3%2C51.8%2C5.2%2C52.1&layer=mapnik" width="100%" height="300" style="border:0;border-radius:8px;"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>Over Ons</h4>
+        <p>Mesut Pulse20 - Premium EMS Training Studio met persoonlijke begeleiding.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Links</h4>
+        <a href="#hero">Home</a>
+        <a href="#about">Over ons</a>
+        <a href="#services">Diensten</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+31642152526">+31 6 42152526</a>
+        <a href="mailto:mesut.esinti3@gmail.com">mesut.esinti3@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; 2026 Mesut Pulse20. Alle rechten voorbehouden.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const h = document.getElementById('hamburger');
+      const m = document.getElementById('mobileMenu');
+      h.addEventListener('click', () => {
+        m.classList.toggle('active');
+        document.body.style.overflow = m.classList.contains('active') ? 'hidden' : '';
+      });
+      document.querySelectorAll('.mobile-menu a').forEach(a => {
+        a.addEventListener('click', e => {
+          e.preventDefault();
+          const id = a.getAttribute('href');
+          m.classList.remove('active');
+          document.body.style.overflow = '';
+          setTimeout(() => document.querySelector(id).scrollIntoView({behavior:'smooth'}), 300);
+        });
+      });
+      document.getElementById('contactForm')?.addEventListener('submit', e => {
+        e.preventDefault();
+        document.getElementById('contactForm').innerHTML = '<p style="text-align:center;padding:40px;">Bedankt! We nemen zo snel mogelijk contact op.</p>';
+      });
+      
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add('shadow');
+        } else {
+          navbar.classList.remove('shadow');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+```
