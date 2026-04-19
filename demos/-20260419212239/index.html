@@ -1,0 +1,877 @@
+```html
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robin Sips Fotografie - Boudoir Shoots & Empowerment</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: #2d2d2d;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: box-shadow 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #8b6f47;
+            letter-spacing: 1px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #2d2d2d;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #c9a876;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #8b6f47;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #2d2d2d;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* HERO */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #8b6f47 0%, #c9a876 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="30" fill="white" opacity="0.03"/></pattern></defs><rect width="1200" height="600" fill="url(%23pattern)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: #8b6f47;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid white;
+            font-size: 1rem;
+        }
+
+        .cta-btn:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ABOUT */
+        .about {
+            padding: 6rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #f5e6d3 0%, #e8d5c4 100%);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+            color: #8b6f47;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #4d4d4d;
+        }
+
+        /* SERVICES */
+        .services {
+            padding: 6rem 2rem;
+            background: #fafafa;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            color: #8b6f47;
+            margin-bottom: 4rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(139, 111, 71, 0.2);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #8b6f47 0%, #c9a876 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: #2d2d2d;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* WHY US */
+        .why-us {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .why-us-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .why-card-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .why-card h3 {
+            font-size: 1.3rem;
+            color: #8b6f47;
+            margin-bottom: 1rem;
+        }
+
+        .why-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* CONTACT */
+        .contact {
+            padding: 6rem 2rem;
+            background: #fafafa;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form h2 {
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            color: #8b6f47;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2d2d2d;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e0d5ca;
+            border-radius: 5px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #8b6f47;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #8b6f47 0%, #c9a876 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(139, 111, 71, 0.3);
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #28a745;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            color: #8b6f47;
+            margin-bottom: 1rem;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #8b6f47 0%, #c9a876 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .info-text h3 {
+            color: #2d2d2d;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .info-text p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #2d2d2d;
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #c9a876;
+        }
+
+        .footer-col p {
+            color: #b0b0b0;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: #c9a876;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(201, 168, 118, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #c9a876;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #c9a876;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #b0b0b0;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.99);
+                padding: 2rem;
+                gap: 1rem;
+                animation: slideDown 0.3s ease;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                height: 350px;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero {
+                margin-top: 70px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-menu a::after {
+                display: none;
+            }
+
+            .nav-menu a {
+                padding-bottom: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .nav-menu {
+                top: 60px;
+                padding: 1.5rem;
+            }
+
+            .hero {
+                margin-top: 60px;
+            }
+
+            .about {
+                padding: 3rem 1rem;
+            }
+
+            .services {
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .contact {
+                padding: 3rem 1rem;
+            }
+
+            .services-grid {
+                gap: 1rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav id="navbar">
+        <div class="logo">Robin Sips</div>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Over ons</a></li>
+            <li><a href="#services">Diensten</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Robin Sips Fotografie</h1>
+            <p>Empowerment door Boudoir Fotografie</p>
+            <button class="cta-btn" onclick="document.getElementById('contact').scrollIntoView();">Neem Contact Op</button>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="about-image">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Crect width='500' height='500' fill='%23f5e6d3'/%3E%3Ccircle cx='250' cy='250' r='150' fill='%23c9a876' opacity='0.3'/%3E%3Ccircle cx='250' cy='250' r='100' fill='%238b6f47' opacity='0.2'/%3E%3C/svg%3E" alt="Boudoir Fotografie">
+        </div>
+        <div class="about-content">
+            <h2>Over Robin Sips</h2>
+            <p>
+                Ik ben gespecialiseerd in boudoir fotografie die vrouwen helpt hun inner power en schoonheid opnieuw te ontdekken. Met jarenlange ervaring creëer ik een veilige, comfortabele omgeving waar elke vrouw zich kan uiten en voelen zoals zij wil voelen.
+            </p>
+            <p>
+                Mijn missie is vrouwen empowerment geven door middel van professionele fotografie. Boudoir shoots gaan verder dan alleen mooie foto's – het is een transformatieve ervaring waarbij vrouwen hun zelfvertrouwen herstellen en hun eigen schoonheid opnieuw waarderen.
+            </p>
+            <p>
+                Met aandacht voor detail, een creatieve blik en het gevoel voor de juiste moment, zorg ik ervoor dat elke sessie een onvergetelijke ervaring wordt. Uw verhaal, uw energie, uw schoonheid – dat staat centraal.
+            </p>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <h2 class="section-title">Mijn Diensten</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                            <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                            <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                        </svg>
+                    </div>
+                    <h3>Boudoir Fotografie</h3>
+                    <p>Professionele boudoir fotoshoots in een comfortabele omgeving waar u volledig jezelf kunt zijn.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3>Empowerment Sessies</h3>
+                    <p>Speciale fotoshoots gericht op zelfvertrouwen, zelfliefde en het herontdekken van uw kracht.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <circle cx="12" cy="12" r="9"></circle>
+                            <path d="M12 7v5l3 3"></path>
+                        </svg>
+                    </div>
+                    <h3>Retouching & Bewerking</h3>
+                    <p>Professionele post-processing met aandacht voor detail om uw beste versie naar voren te brengen.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Print & Afgiftes</h3>
+                    <p>Hoogwaardige prints en digitale afgiftes zodat u uw mooie momenten kunt bewaren en delen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="why-us">
+        <div class="why-us-container">
+            <h2 class="section-title">Waarom Kiezen voor Robin Sips</h2>
+            <div class="why-us-grid">
+                <div class="why-card">
+                    <div class="why-card-icon">✨</div>
+                    <h3>Expertise & Ervaring</h3>
+                    <p>Met jaren ervaring in boudoir fotografie weet ik hoe ik vrouwen in hun kracht zet en hun beste kant laat zien.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-card-icon">🛡️</div>
+                    <h3>Veilige & Comfortabele Omgeving</h3>
+                    <p>U staat centraal. Ik creëer een veilige plek waar u zich kwetsbaar en authentic kunt voelen zonder oordeel.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-card-icon">❤️</div>
+                    <h3>Persoonlijke Benadering</h3>
+                    <p>Geen standaard shoots. Elke sessie wordt persoonlijk afgestemd op uw wensen, stijl en doelen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <!-- FORM -->
+            <div class="contact-form">
+                <div class="success-message" id="successMessage">
+                    ✓ Bedankt voor uw bericht! Ik neem zo snel mogelijk contact met u op.
+                </div>
+                <h2>Neem Contact Op</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Volledige Naam *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefoon</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Bericht *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Verzenden</button>
+                </form>
+            </div>
+
+            <!-- INFO & MAP -->
+            <div class="contact-info">
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dOWTgHhC4I4S8A&q=Robin+Sips+Fotograaf+Nederland" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+
+                <h2>Contact Informatie</h2>
+
+                <div class="info-item">
+                    <div class="info-icon">📧</div>
+                    <div class="info-text">
+                        <h3>Email</h3>
+                        <p><a href="mailto:info@robinsips.nl" style="color: #666; text-decoration: none;">info@robinsips.nl</a></p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">📱</div>
+                    <div class="info-text">
+                        <h3>Telefoon</h3>
+                        <p><a href="tel:+31645149755" style="color: #666; text-decoration: none;">+31 6 45 14 97 55</a></p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">💼</div>
+                    <div class="info-text">
+                        <h3>Beschikbaarheid</h3>
+                        <p>Maandag tot vrijdag, op afspraak. Weekend shoots mogelijk.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Robin Sips Fotografie</h3>
+                <p>Empowerment door boudoir fotografie. Ik help vrouwen hun inner strength en schoonheid herontdekken.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com" title="Facebook">f</a>
+                    <a href="https://instagram.com" title="Instagram">📷</a>
+                    <a href="https://linkedin.com" title="LinkedIn">in
