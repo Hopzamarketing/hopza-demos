@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Coaching - Transformeer Jezelf Vandaag</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Color scheme voor coaching: diepblauw + warme accent */
+        :root {
+            --primary-color: #1A2744;
+            --accent-color: #E8620A;
+            --secondary-color: #F9EEE7;
+            --text-dark: #2C2C2C;
+            --text-light: #fff;
+            --border-light: #E8E8E8;
+            --success-color: #4CAF50;
+        }
+
+        /* HEADER & NAVIGATIE */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--text-light);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-color);
+        }
+
+        .cta-btn {
+            background: var(--accent-color);
+            color: var(--text-light);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            background: #d55000;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(232, 98, 10, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 1rem 3%;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* HERO SECTIE */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(26, 39, 68, 0.5), rgba(26, 39, 68, 0.5)), 
+                        url('https://images.pexels.com/photos/32688082/pexels-photo-32688082.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: var(--text-light);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #d55000;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(232, 98, 10, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--text-light);
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--text-light);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+        }
+
+        /* OVER ONS SECTIE */
+        .about {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .about-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            color: #555;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .usp-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .usp-list li {
+            padding: 0.8rem 0;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .usp-list li:before {
+            content: "✓";
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--secondary-color);
+            border-radius: 4px;
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .about {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 3rem 3%;
+            }
+
+            .about-content h2 {
+                font-size: 2rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* DIENSTEN SECTIE */
+        .services {
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 6rem 5%;
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(255,255,255,0.08);
+            padding: 2.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .service-card:hover {
+            background: rgba(232, 98, 10, 0.15);
+            transform: translateY(-8px);
+            border-color: var(--accent-color);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .service-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .services {
+                padding: 3rem 3%;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* PRIJZEN SECTIE */
+        .pricing {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .price-card {
+            background: var(--text-light);
+            border: 2px solid var(--border-light);
+            border-radius: 8px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .price-card.featured {
+            border-color: var(--accent-color);
+            background: linear-gradient(135deg, var(--secondary-color), var(--text-light));
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(232, 98, 10, 0.2);
+        }
+
+        .price-card.featured:after {
+            content: "AANBEVOLEN";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .price-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .price-amount {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            font-weight: 700;
+            margin: 1.5rem 0;
+        }
+
+        .price-amount small {
+            font-size: 0.6em;
+            color: #999;
+        }
+
+        .price-features {
+            list-style: none;
+            text-align: left;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+
+        .price-features li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border-light);
+            color: #666;
+        }
+
+        .price-features li:before {
+            content: "✓ ";
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .price-cta {
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .pricing {
+                padding: 3rem 3%;
+            }
+
+            .price-card.featured {
+                transform: scale(1);
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* REVIEWS SECTIE */
+        .reviews {
+            background: var(--secondary-color);
+            padding: 6rem 5%;
+        }
+
+        .reviews-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .rating-display {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .big-rating {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            color: var(--accent-color);
+            margin: 1rem 0;
+        }
+
+        .stars {
+            font-size: 2rem;
+            color: #FFB800;
+            letter-spacing: 0.3rem;
+        }
+
+        .rating-text {
+            color: #666;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .review-card {
+            background: var(--text-light);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .review-stars {
+            color: #FFB800;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.2rem;
+        }
+
+        .review-text {
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .reviews {
+                padding: 3rem 3%;
+            }
+
+            .big-rating {
+                font-size: 2.5rem;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* GALERIJ/BANNER SECTIE */
+        .gallery {
+            height: 400px;
+            background: linear-gradient(rgba(26, 39, 68, 0.3), rgba(26, 39, 68, 0.3)), 
+                        url('https://images.pexels.com/photos/8941567/pexels-photo-8941567.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') center/cover;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .gallery-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                height: 250px;
+                background-attachment: scroll;
+            }
+
+            .gallery-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .gallery-content p {
+                font-size: 1rem;
+            }
+        }
+
+        /* CONTACT SECTIE */
+        .contact {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item h3 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-item p, .contact-item a {
+            color: #666;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .contact-item a {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-form h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            border: 1px solid var(--border-light);
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(232, 98, 10, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            background: var(--accent-color);
+            color: var(--text-light);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .form-submit:hover {
+            background: #d55000;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(232, 98, 10, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .contact {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 3rem 3%;
+            }
+
+            .contact-info h2, .contact-form h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 3rem 5%;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                padding: 2rem 3%;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth transitions */
+        a, button {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">CoachLift</div>
+            <ul class="nav-menu">
+                <li><a href="#about">Over Ons</a></li>
+                <li><a href="#services">Diensten</a></li>
+                <li><a href="#pricing">Prijzen</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="cta-btn" onclick="document.getElementById('contact').scrollIntoView()">Gratis Consult</button>
+        </nav>
+    </header>
+
+    <!-- HERO SECTIE -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Transformeer Je Leven</h1>
+            <p>Persoonlijke coaching die je werkelijk naar het volgende niveau tilt</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView()">Begin Nu</button>
+                <button class="btn-secondary" onclick="document.getElementById('services').scrollIntoView()">Ontdek Meer</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- OVER ONS -->
+    <section class="about" id="about">
+        <img src="https://images.pexels.com/photos/8941574/pexels-photo-8941574.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Over ons" class="about-image">
+        <div class="about-content">
+            <h2>Wie Zijn Wij?</h2>
+            <p>CoachLift is een toonaangevend coachingbedrijf dat zich richt op persoonlijke groei en professionele ontwikkeling. Met meer dan 10 jaar ervaring hebben we duizenden mensen geholpen om hun doelen te bereiken en hun volledige potentieel te ontginnen.</p>
+            <p>Onze holistische aanpak combineert bewezen coachingstechnieken met moderne inzichten uit psychologie en leiderschapsontwikkeling. We geloven dat iedereen het vermogen heeft om groot te denken en buitengewone resultaten te behalen.</p>
+            
+            <ul class="usp-list">
+                <li>Gecertificeerde coaches met ruime ervaring</li>
+                <li>Persoonlijk op maat gemaakte coachingsplanning</li>
+                <li>Meetbare resultaten binnen 8-12 weken</li>
+                <li>100% vertrouwelijkheid en discretie</li>
+                <li>Flexibele offline en online sessies</li>
+            </ul>
+
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Tevreden Cliënten</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Doel Bereikt</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">4.9★</div>
+                    <div class="stat-label">Gemiddelde Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIENSTEN -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <h2 class="section-title">Onze Diensten</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Persoonlijke Coaching</h3>
+                    <p>Één-op-één sessies gericht op je specifieke doelen en uitdagingen. Ontdek je sterken en werk aan groeipunten met begeleiding van een ervaren coach.</p>
+                    <div class="service-price">€75/uur</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👔</div>
+                    <h3>Professionele Coaching</h3>
+                    <p>Gericht op carrièregroei, leiderschap en professionele vaardigheden. Perfect voor ondernemers, managers en professionals die hun carrière willen accelereren.</p>
+                    <div class="service-price">€95/uur</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💪</div>
+                    <h3>Performance Coaching</h3>
+                    <p>Intensieve coaching voor piekprestaties in sport, kunst en werk. Ontwikkel mentale sterkte, zelfvertrouwen en het vermogen om onder druk te presteren.</p>
+                    <div class="service-price">€110/uur</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👥</div>
+                    <h3>Groepsworkshops</h3>
+                    <p>Interactieve workshops voor teams en groepen. Bouw teamcohesie, communicatie en gezamenlijke doelen met onze expert-geleide sessies.</p>
+                    <div class="service-price">€1.500/dag</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRIJZEN -->
+    <section class="pricing" id="pricing">
+        <h2 class="section-title">Prijzen & Pakketten</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Starter</h3>
+                <div class="price-amount">€199 <small>/maand</small></div>
+                <ul class="price-features">
+                    <li>4 coachingsessies</li>
+                    <li>Doelstelling planning</li>
+                    <li>Maandelijks voortgangsrapport</li>
+                    <li>E-mailondersteuning</li>
+                </ul>
+                <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView()">Geïnteresseerd</button>
+            </div>
+
+            <div class="price-card featured">
+                <h3>Professional</h3>
+                <div class="price-amount">€399 <small>/maand</small></div>
+                <ul class="price-features">
+                    <li>8 coachingsessies</li>
+                    <li>Persoonlijk coachingsplan</li>
+                    <li>
