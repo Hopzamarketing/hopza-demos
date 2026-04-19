@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De Vries Kappers - Kwaliteit en Service</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: #2C2C2C;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATIE */
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background-color: #F5F0E8;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2C2C2C;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2C2C2C;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: #8B6F5E;
+        }
+
+        .cta-btn {
+            background-color: #8B6F5E;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .cta-btn:hover {
+            background-color: #6F5649;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 111, 94, 0.3);
+        }
+
+        /* HERO */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(44, 44, 44, 0.5), rgba(44, 44, 44, 0.5)), url('https://images.pexels.com/photos/18733501/pexels-photo-18733501.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background-color: #8B6F5E;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 2px solid #8B6F5E;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover {
+            background-color: #6F5649;
+            border-color: #6F5649;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+            font-size: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: #8B6F5E;
+            transform: translateY(-3px);
+        }
+
+        /* OVER ONS */
+        .about {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #2C2C2C;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #8B6F5E;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .usp-list {
+            margin: 2rem 0;
+        }
+
+        .usp-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .usp-item::before {
+            content: "✓";
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #8B6F5E;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #F5F0E8;
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #8B6F5E;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* DIENSTEN */
+        .services {
+            background-color: #2C2C2C;
+            padding: 5rem 2rem;
+            color: white;
+        }
+
+        .services .section-title {
+            color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: #3A3A3A;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            background-color: #444;
+            transform: translateY(-8px);
+            border-color: #8B6F5E;
+            box-shadow: 0 12px 30px rgba(139, 111, 94, 0.3);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #8B6F5E;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            color: #CCC;
+            line-height: 1.6;
+        }
+
+        .service-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #8B6F5E;
+            font-weight: 700;
+        }
+
+        /* PRIJZEN */
+        .prices {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .prices-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+
+        .prices-table th {
+            background-color: #F5F0E8;
+            padding: 1.5rem;
+            text-align: left;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            border: 1px solid #E5DDD0;
+        }
+
+        .prices-table td {
+            padding: 1.5rem;
+            border: 1px solid #E5DDD0;
+        }
+
+        .prices-table tr:hover {
+            background-color: #F9F6F1;
+        }
+
+        .recommended-row {
+            background-color: #F5F0E8;
+            border: 3px solid #8B6F5E;
+        }
+
+        .recommended-badge {
+            display: inline-block;
+            background-color: #8B6F5E;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        /* REVIEWS */
+        .reviews {
+            background-color: #F5F0E8;
+            padding: 5rem 2rem;
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .rating-display {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .stars {
+            font-size: 3rem;
+            color: #8B6F5E;
+            margin-bottom: 0.5rem;
+        }
+
+        .rating-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #2C2C2C;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .review-stars {
+            color: #8B6F5E;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .review-text {
+            margin-bottom: 1rem;
+            font-style: italic;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .review-author {
+            font-weight: 700;
+            color: #2C2C2C;
+        }
+
+        /* GALERIJ */
+        .gallery {
+            height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.pexels.com/photos/30776224/pexels-photo-30776224.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .gallery-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-content p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* CONTACT */
+        .contact {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #8B6F5E;
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item label {
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2C2C2C;
+        }
+
+        .contact-item a {
+            color: #8B6F5E;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #6F5649;
+        }
+
+        .contact-item p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            color: #2C2C2C;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #DDD;
+            border-radius: 5px;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #8B6F5E;
+            box-shadow: 0 0 5px rgba(139, 111, 94, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            background-color: #8B6F5E;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .form-submit:hover {
+            background-color: #6F5649;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 111, 94, 0.3);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #2C2C2C;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-tagline {
+            color: #AAA;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: #8B6F5E;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #C9A84C;
+        }
+
+        .footer-copyright {
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid #444;
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+                width: 100%;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .prices-table {
+                font-size: 0.85rem;
+            }
+
+            .prices-table th,
+            .prices-table td {
+                padding: 1rem;
+            }
+
+            .gallery-content h2 {
+                font-size: 2rem;
+            }
+
+            .footer-links {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            nav {
+                gap: 0.5rem;
+            }
+
+            nav a {
+                font-size: 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .about-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATIE -->
+    <header>
+        <div class="logo">✂ De Vries Kappers</div>
+        <nav>
+            <a href="#about">Over ons</a>
+            <a href="#services">Diensten</a>
+            <a href="#prices">Prijzen</a>
+            <a href="#contact">Contact</a>
+            <a href="tel:+31612345678" class="cta-btn">Bellen</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>De Vries Kappers</h1>
+        <p>Kwaliteit, Service en Stijl in Perfectie</p>
+        <div class="hero-buttons">
+            <a href="#contact" class="btn-primary">Maak een Afspraak</a>
+            <a href="#services" class="btn-secondary">Onze Diensten</a>
+        </div>
+    </section>
+
+    <!-- OVER ONS -->
+    <section class="about" id="about">
+        <h2 class="section-title">Over De Vries Kappers</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://images.pexels.com/photos/35068395/pexels-photo-35068395.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="De Vries Kappers">
+            </div>
+            <div class="about-text">
+                <h3>Vakmanschap Sinds Generaties</h3>
+                <p>Bij De Vries Kappers geloven wij dat een goed kapsel het verschil maakt. Met meer dan twee decennia ervaring en passie voor ons vak, helpen we onze klanten er uit te zien en zich voelen als hun beste zelf.</p>
+                <p>Ons team van gecertificeerde kapper specialisten werkt met de nieuwste technieken en premium kwaliteitsproducten. We luisteren naar uw wensen en geven professioneel advies voor het kapsel dat echt bij u past.</p>
+                
+                <div class="usp-list">
+                    <div class="usp-item">Erkend en gecertificeerd kappersteam</div>
+                    <div class="usp-item">Premium producten en behandelingen</div>
+                    <div class="usp-item">Persoonlijk advies en service</div>
+                    <div class="usp-item">Schoon en comfortabel interieur</div>
+                    <div class="usp-item">Korte wachttijden gegarandeerd</div>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Jaren Ervaring</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5000+</div>
+                        <div class="stat-label">Tevreden Klanten</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4.8★</div>
+                        <div class="stat-label">Gemiddelde Rating</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIENSTEN -->
+    <section class="services" id="services">
+        <h2 class="section-title">Onze Diensten</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">✂</div>
+                <h3>Heren Kapsel</h3>
+                <p>Klassieke tot moderne coups. Professioneel geschoren lijnen met het scheerafwerk van een vakman. Altijd netjes en keurig!</p>
+                <div class="service-price">€18,50</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👩</div>
+                <h3>Dames Kapsel</h3>
+                <p>Van korte pixie cuts tot lange lokken. Elke kapsel wordt precies naar uw wens geknipten gestyled met deskundigheid.</p>
+                <div class="service-price">€28,00</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👨‍🦱</div>
+                <h3>Kinderknipbeurt</h3>
+                <p>Speciaal voor de kleintjes! Geduldig en voorzichtig knippen in een plezierige omgeving. Kinderen voelen zich welkom.</p>
+                <div class="service-price">€14,00</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🧔</div>
+                <h3>Baard Trimmen</h3>
+                <p>Baardverzorging op maat. Scheren, trimmen, stylen en een handige tips voor thuis onderhoud van uw baardstijl.</p>
+                <div class="service-price">€12,50</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRIJZEN -->
+    <section class="prices" id="prices">
+        <h2 class="section-title">Prijzenoverzicht</h2>
+        <table class="prices-table">
+            <thead>
+                <tr>
+                    <th>Dienst</th>
+                    <th>Beschrijving</th>
+                    <th>Prijs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Heren Standaard Kapsel</td>
+                    <td>Klassieke knipbeurt met finishing</td>
+                    <td>€18,50</td>
+                </tr>
+                <tr>
+                    <td>Heren Premium Kapsel</td>
+                    <td>Kapsel + baardtrimmen + styling</td>
+                    <td>€28,00</td>
+                </tr>
+                <tr class="recommended-row">
+                    <td><span class="recommended-badge">POPULAIR</span> Dames Kapsel</td>
+                    <td>Volledige knipbeurt + föhnen + styling</td>
+                    <td><strong>€28,00</strong></td>
+                </tr>
+                <tr>
+                    <td>Dames Gekleurd & Gekapt</td>
+                    <td>Kleuren + kapsel + behandeling + styling</td>
+                    <td>€65,00</td>
+                </tr>
+                <tr>
+                    <td>Kinderknippen (0-12 jaar)</td>
+                    <td>Geduldig knippen speciaal voor kinderen</td>
+                    <td>€14,00</td>
+                </tr>
+                <tr>
+                    <td>Baard Verzorging</td>
+                    <td>Trimmen, scheren en vorm geven</td>
+                    <td>€12,50</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="reviews">
+        <div class="reviews-container">
+            <h2 class="section-title">Wat Onze Klanten Zeggen</h2>
+            <div class="rating-display">
+                <div class="stars">★★★★★</div>
+                <div class="rating-text">4.8 uit 5 sterren - 347 reviews</div>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Ik kom al 10 jaar bij De Vries! Altijd een perfect kapsel, schoon interieur en fijne persoonlijke aandacht. Jan en zijn team zijn echt vakmannen."</p>
+                    <div class="review-author">- Mark Jansen</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Eindelijk een kapsalon waar ze echt luisteren naar wat je wilt! Mijn kapsel ziet er beter uit dan ooit. Zal zeker terugkomen."</p>
+                    <div class="review-author">- Sandra Groenveld</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★☆</div>
+                    <p class="review-text">"Prima service en kwaliteit! Het enige minpuntje was dat ik 15 minuten moest wachten, maar het was het wachten zeker waard. Aanrader!"</p>
+                    <div class="review-author">- Erik de Boer</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIJ -->
+    <section class="gallery">
+        <div class="gallery-content">
+            <h2>Kwaliteit die Spreekt voor Zich</h2>
+            <p>Ontdek de vakmanschap en creativiteit van ons team</p>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Neem Contact Op</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Contactgegevens</h3>
+                
+                <div class="contact-item">
+                    <label>Telefoon</label>
+                    <a href="tel:+31612345678">+31 6 12 34 56 78</a>
+                </div>
+
+                <div class="contact-item">
+                    <label>Website</label>
+                    <a href="https://voorbeeld.nl" target="_blank">https://voorbeeld.nl</a>
+                </div>
+
+                <div class="contact-item">
+                    <label>Openingstijden</label>
+                    <p>
+                        Maandag - Vrijdag:
