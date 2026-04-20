@@ -1,0 +1,298 @@
+```html
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branko BVU-IT - IT Consultancy</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #333; }
+        
+        nav { position: fixed; top: 0; width: 100%; background: white; z-index: 100; transition: box-shadow 0.3s; }
+        nav.scrolled { box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-brand { font-size: 1.5rem; font-weight: bold; color: #0066cc; }
+        .nav-links { display: none; }
+        .nav-links.active { display: flex; }
+        .nav-links a { margin-left: 2rem; text-decoration: none; color: #333; transition: color 0.3s; }
+        .nav-links a:hover { color: #0066cc; }
+        #hamburger { display: block; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .hamburger-line { width: 25px; height: 3px; background: #333; margin: 5px 0; transition: 0.3s; }
+        
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: #0066cc; z-index: 99; padding-top: 5rem; text-align: center; }
+        .mobile-menu.active { display: flex; flex-direction: column; }
+        .mobile-menu a { color: white; font-size: 1.3rem; padding: 1.5rem; text-decoration: none; transition: background 0.3s; }
+        .mobile-menu a:hover { background: rgba(255,255,255,0.1); }
+        
+        @media (min-width: 768px) {
+            .nav-links { display: flex !important; }
+            #hamburger { display: none; }
+            .mobile-menu { display: none !important; }
+        }
+        
+        section { padding: 5rem 2rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        
+        .hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/6238137/pexels-photo-6238137.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 60px; }
+        .hero-content h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+        .hero-content p { font-size: 1.3rem; margin-bottom: 2rem; }
+        .btn { display: inline-block; padding: 0.8rem 2rem; background: #0066cc; color: white; text-decoration: none; border-radius: 5px; transition: background 0.3s; border: none; cursor: pointer; font-size: 1rem; }
+        .btn:hover { background: #0052a3; }
+        
+        .about { background: #f9f9f9; }
+        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .about-content img { width: 100%; border-radius: 10px; }
+        .about-text h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+        .about-text p { margin-bottom: 1rem; line-height: 1.8; }
+        
+        .services { background: white; }
+        .services h2 { font-size: 2rem; text-align: center; margin-bottom: 3rem; }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .service-card { background: #f9f9f9; padding: 2rem; border-radius: 10px; text-align: center; transition: transform 0.3s; }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-card svg { width: 50px; height: 50px; color: #0066cc; margin-bottom: 1rem; }
+        .service-card h3 { margin: 1rem 0; }
+        .service-card p { color: #666; }
+        
+        .usp { background: #f9f9f9; }
+        .usp h2 { font-size: 2rem; text-align: center; margin-bottom: 3rem; }
+        .usp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .usp-item { text-align: center; padding: 1.5rem; }
+        .usp-item svg { width: 50px; height: 50px; color: #0066cc; margin-bottom: 1rem; }
+        .usp-item h3 { margin: 1rem 0; }
+        .usp-item p { color: #666; }
+        
+        .contact { background: white; }
+        .contact h2 { font-size: 2rem; text-align: center; margin-bottom: 3rem; }
+        .contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
+        .contact-form textarea { resize: vertical; min-height: 120px; }
+        .contact-info { padding: 1rem 0; }
+        .contact-info-item { display: flex; align-items: flex-start; margin-bottom: 1.5rem; }
+        .contact-info-item svg { width: 24px; height: 24px; color: #0066cc; margin-right: 1rem; flex-shrink: 0; margin-top: 0.2rem; }
+        .contact-info-item div { }
+        .contact-info-item h4 { margin-bottom: 0.3rem; }
+        .contact-info-item a { color: #0066cc; text-decoration: none; }
+        .contact-info-item a:hover { text-decoration: underline; }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2rem; }
+            .hero-content p { font-size: 1rem; }
+            .about-content, .contact-content { grid-template-columns: 1fr; }
+            section { padding: 3rem 1rem; }
+        }
+        
+        footer { background: #1a1a1a; color: white; padding: 3rem 2rem 1rem; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; margin-bottom: 2rem; }
+        .footer-section h4 { margin-bottom: 1rem; }
+        .footer-section a { color: #aaa; text-decoration: none; display: block; margin-bottom: 0.5rem; }
+        .footer-section a:hover { color: white; }
+        .footer-bottom { text-align: center; color: #666; padding-top: 2rem; border-top: 1px solid #333; }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">Branko BVU-IT</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">Over ons</a>
+                <a href="#services">Diensten</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button id="hamburger">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </button>
+        </div>
+    </nav>
+    
+    <div id="mobileMenu" class="mobile-menu">
+        <a href="#home">Home</a>
+        <a href="#about">Over ons</a>
+        <a href="#services">Diensten</a>
+        <a href="#contact">Contact</a>
+    </div>
+    
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Branko BVU-IT</h1>
+            <p>IT Beheer en Projecten</p>
+            <a href="#contact" class="btn">Neem contact op</a>
+        </div>
+    </section>
+    
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div>
+                    <img src="https://images.pexels.com/photos/23496863/pexels-photo-23496863.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="IT Consultancy">
+                </div>
+                <div class="about-text">
+                    <h2>Over ons</h2>
+                    <p>Bij Branko BVU-IT zijn we gespecialiseerd in IT Consultancy met focus op IT Beheer en Projecten. Onze ervaren team biedt maatwerk oplossingen voor bedrijven van alle maten, van startups tot grote organisaties.</p>
+                    <p>We geloven in duurzame IT-infrastructuur, efficiënte processen en technologie die aansluit bij uw bedrijfsdoelstellingen. Met onze consultancyservices helpen we u optimaal gebruik te maken van uw IT-omgeving en nieuwe technologieën succesvol in te voeren.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Onze Diensten</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <h3>IT Beheer</h3>
+                    <p>Professioneel beheer van uw IT-infrastructuur met 24/7 monitoring en proactieve ondersteuning.</p>
+                </div>
+                <div class="service-card">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    <h3>Beveiging & Compliance</h3>
+                    <p>Bescherming van uw bedrijfsgegevens met beveiligingsaudits en compliance-ondersteuning.</p>
+                </div>
+                <div class="service-card">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="1"></circle>
+                        <path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m5.08 5.08l4.24 4.24M1 12h6m6 0h6M4.22 19.78l4.24-4.24m5.08-5.08l4.24-4.24"></path>
+                    </svg>
+                    <h3>Consultancy & Projecten</h3>
+                    <p>Strategische advisering en realisatie van IT-projecten van opzet tot oplevering.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="usp">
+        <div class="container">
+            <h2>Waarom Branko BVU-IT</h2>
+            <div class="usp-grid">
+                <div class="usp-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
+                    </svg>
+                    <h3>Ervaring</h3>
+                    <p>Jarenlange ervaring in IT-consultancy en projectmanagement bij diverse organisaties.</p>
+                </div>
+                <div class="usp-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <h3>Maatwerk</h3>
+                    <p>Elke oplossing is speciaal voor uw situatie afgestemd en aangepast aan uw wensen.</p>
+                </div>
+                <div class="usp-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6v6l4 2"></polyline>
+                    </svg>
+                    <h3>Snelle Respons</h3>
+                    <p>Snelle reactie op verzoeken en problemen met dedicated support voor uw organisatie.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <div class="contact-content">
+                <form id="contactForm" class="contact-form">
+                    <input type="text" placeholder="Uw naam" required>
+                    <input type="email" placeholder="Uw e-mailadres" required>
+                    <input type="tel" placeholder="Uw telefoonnummer">
+                    <textarea placeholder="Uw bericht" required></textarea>
+                    <button type="submit" class="btn">Verzenden</button>
+                </form>
+                <div>
+                    <div class="contact-info">
+                        <div class="contact-info-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <div>
+                                <h4>Telefoon</h4>
+                                <a href="tel:+31613986366">+31 (0)6 1398 6366</a>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <div>
+                                <h4>E-mail</h4>
+                                <a href="mailto:branko.vucenovic@gmail.com">branko.vucenovic@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=4.3%2C51.8%2C5.2%2C52.1&layer=mapnik" width="100%" height="300" style="border:0; border-radius: 10px; margin-top: 2rem;"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Bedrijf</h4>
+                <a href="#about">Over ons</a>
+                <a href="#services">Diensten</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h4>Diensten</h4>
+                <a href="#services">IT Beheer</a>
+                <a href="#services">Beveiging</a>
+                <a href="#services">Consultancy</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <a href="tel:+31613986366">+31 (0)6 1398 6366</a>
+                <a href="mailto:branko.vucenovic@gmail.com">branko.vucenovic@gmail.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Branko BVU-IT. Alle rechten voorbehouden.</p>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const h = document.getElementById('hamburger');
+            const m = document.getElementById('mobileMenu');
+            h.addEventListener('click', () => {
+                m.classList.toggle('active');
+                document.body.style.overflow = m.classList.contains('active') ? 'hidden' : '';
+            });
+            document.querySelectorAll('.mobile-menu a').forEach(a => {
+                a.addEventListener('click', e => {
+                    e.preventDefault();
+                    const id = a.getAttribute('href');
+                    m.classList.remove('active');
+                    document.body.style.overflow = '';
+                    setTimeout(() => document.querySelector(id).scrollIntoView({behavior:'smooth'}), 300);
+                });
+            });
+            document.getElementById('contactForm')?.addEventListener('submit', e => {
+                e.preventDefault();
+                document.getElementById('contactForm').innerHTML = '<p style="text-align:center;padding:40px;">Bedankt! We nemen zo snel mogelijk contact op.</p>';
+            });
+            
+            window.addEventListener('scroll', () => {
+                const navbar = document.getElementById('navbar');
+                if (window.scrollY > 10) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+```
