@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robin Peak Airco's | Elektro Expert</title>
+<meta name="description" content="Installatie bedrijf voor airco's en onderhoud. Vakkundige montage en service voor een koel huis en comfortabel werkklimaat.">
+<meta property="og:title" content="Robin Peak Airco's | Vakmanschap in Elektro">
+<meta property="og:description" content="Installatie bedrijf voor airco's en onderhoud">
+<meta property="og:image" content="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Robin Peak Airco's","telephone":"+31645149755","email":"info@robinsips.nl"}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:#1A1A1A;line-height:1.7;font-size:16px;background:#fff}
+h1,h2,h3,h4{font-family:'Barlow',sans-serif;font-weight:800;letter-spacing:-0.02em;line-height:1.15}
+h1{font-size:clamp(40px,6vw,72px);color:#fff}
+h2{font-size:clamp(32px,4vw,48px)}
+h3{font-size:clamp(20px,2vw,28px)}
+a{color:inherit;text-decoration:none;transition:color .2s}
+img{max-width:100%;display:block}
+.container{max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,60px)}
+section{padding:clamp(60px,10vw,120px) 0}
+.label{text-transform:uppercase;letter-spacing:.1em;font-size:13px;font-weight:700;color:#FF6B35;margin-bottom:16px;display:inline-block}
+.btn{display:inline-block;padding:16px 32px;border-radius:4px;font-weight:700;font-family:'Barlow',sans-serif;letter-spacing:.02em;text-transform:uppercase;font-size:15px;transition:all .2s;cursor:pointer;border:none}
+.btn-primary{background:#FF6B35;color:#fff}
+.btn-primary:hover{background:#e85a24;transform:scale(1.03)}
+.btn-primary:active{transform:scale(.98)}
+.btn-secondary{background:transparent;color:#fff;border:2px solid #fff}
+.btn-secondary:hover{background:#fff;color:#1A1A1A}
+nav{position:fixed;top:0;width:100%;z-index:1000;background:#fff;padding:15px 30px;transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 15px rgba(0,0,0,0.1)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.nav-logo{font-family:'Barlow',sans-serif;font-weight:800;font-size:22px;color:#1A1A1A}
+.nav-menu{display:flex;gap:40px;list-style:none}
+.nav-menu a{position:relative;font-weight:500;font-size:15px}
+.nav-menu a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:2px;background:#FF6B35;transition:width .3s}
+.nav-menu a:hover::after{width:100%}
+.hamburger{display:none;cursor:pointer;background:none;border:none;padding:8px}
+.hamburger span{display:block;width:28px;height:3px;background:#1A1A1A;margin:5px 0;transition:.3s}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:#1A1A1A;z-index:999;flex-direction:column;justify-content:center;align-items:center;gap:30px}
+.mobile-menu.active{display:flex}
+.mobile-menu a{color:#fff;font-size:28px;font-family:'Barlow',sans-serif;font-weight:700}
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&h=650&w=940') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:120px 20px 80px}
+.hero-content{max-width:900px}
+.hero p.sub{font-size:clamp(17px,1.5vw,20px);margin:20px 0 40px;color:#f5f5f5}
+.hero-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+/* TRUST BAR */
+.trust{background:#F5F5F5;padding:40px 20px;text-align:center}
+.trust-inner{display:flex;justify-content:center;gap:60px;flex-wrap:wrap;max-width:1200px;margin:0 auto;align-items:center}
+.trust-num{font-family:'Barlow',sans-serif;font-size:42px;font-weight:800;color:#FF6B35}
+.trust-label{font-size:14px;color:#666}
+/* OVER */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-img{overflow:hidden;border-radius:4px}
+.about-img img{width:100%;height:500px;object-fit:cover;transition:transform .5s}
+.about-img:hover img{transform:scale(1.05)}
+.about-text p{margin-bottom:20px;color:#444}
+/* DIENSTEN */
+.diensten{background:#F9F9F9}
+.diensten-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:50px}
+.dienst-card{background:#fff;padding:40px 30px;border-radius:4px;transition:all .3s;border-top:4px solid #FF6B35}
+.dienst-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.08)}
+.dienst-icon{width:60px;height:60px;background:#FF6B35;color:#fff;display:flex;align-items:center;justify-content:center;border-radius:4px;margin-bottom:24px;transition:transform .3s}
+.dienst-card:hover .dienst-icon{transform:scale(1.1)}
+.dienst-card h3{margin-bottom:12px}
+.dienst-card p{color:#555}
+/* TESTIMONIALS */
+.testimonials{background:#F9F9F9}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:50px}
+.test-card{background:#fff;padding:32px;border-radius:4px;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+.stars{display:flex;gap:2px;margin-bottom:16px}
+.test-card p{color:#333;margin-bottom:20px;font-style:italic}
+.test-name{font-weight:700;color:#1A1A1A;font-family:'Barlow',sans-serif}
+.disclaimer{text-align:center;color:#999;font-size:13px;margin-top:30px;font-style:italic}
+/* WAAROM */
+.waarom-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:50px}
+.usp{text-align:center;padding:30px 20px}
+.usp-icon{width:70px;height:70px;background:#1A1A1A;color:#FF6B35;display:flex;align-items:center;justify-content:center;border-radius:50%;margin:0 auto 20px}
+.usp h3{margin-bottom:12px;font-size:22px}
+.usp p{color:#555}
+/* FAQ */
+.faq{background:#F9F9F9}
+.faq-wrap{max-width:800px;margin:50px auto 0}
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:50px}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;margin-bottom:8px;font-weight:600;font-size:14px}
+.form-group input,.form-group textarea{width:100%;padding:14px;border:2px solid #e5e5e5;border-radius:4px;font-family:inherit;font-size:15px;transition:border-color .2s}
+.form-group input:focus,.form-group textarea:focus{outline:2px solid #FF6B35;border-color:#FF6B35}
+.contact-info-item{display:flex;gap:16px;align-items:center;margin-bottom:24px;color:#333}
+.contact-info-item svg{color:#FF6B35;flex-shrink:0}
+/* FOOTER */
+footer{background:#1A1A1A;color:#ccc;padding:60px 0 30px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,60px)}
+footer h4{color:#fff;margin-bottom:20px;font-size:18px}
+footer a{color:#ccc;display:block;padding:4px 0}
+footer a:hover{color:#FF6B35}
+.footer-bottom{text-align:center;padding-top:40px;margin-top:40px;border-top:1px solid #333;color:#888;font-size:14px;max-width:1200px;margin-left:auto;margin-right:auto;padding-left:clamp(20px,5vw,60px);padding-right:clamp(20px,5vw,60px)}
+/* FADE */
+.fade-in{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.fade-in.delay-1{transition-delay:.1s}
+.fade-in.delay-2{transition-delay:.2s}
+.fade-in.delay-3{transition-delay:.3s}
+/* FOCUS */
+a:focus,button:focus,input:focus,textarea:focus{outline:2px solid #FF6B35;outline-offset:2px}
+/* MEDIA */
+@media(max-width:900px){
+  .nav-menu{display:none}
+  .hamburger{display:block}
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .about-img img{height:350px}
+  .diensten-grid,.test-grid,.waarom-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:30px}
+  .trust-inner{gap:30px}
+  .trust-num{font-size:34px}
+  body{padding-bottom:80px}
+}
+@media(min-width:768px){.mobile-cta{display:none!important}}
+@media(max-width:767px){.wa-float{display:none!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">Robin Peak Airco's</a>
+    <ul class="nav-menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#over">Over ons</a></li>
+      <li><a href="#diensten">Diensten</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home">Home</a>
+  <a href="#over">Over ons</a>
+  <a href="#diensten">Diensten</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<header class="hero" id="home">
+  <div class="hero-content fade-in">
+    <h1>Het hele jaar aangenaam koel in uw woning</h1>
+    <p class="sub">Vakkundige airco-installatie en onderhoud door een monteur die u herkent.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Vraag offerte aan</a>
+      <a href="tel:+31645149755" class="btn btn-secondary">Bel direct: +31 6 45149755</a>
+    </div>
+  </div>
+</header>
+
+<section class="trust" style="padding:40px 20px">
+  <div class="trust-inner fade-in">
+    <div><div class="trust-num">★ 4.9</div><div class="trust-label">Google reviews</div></div>
+    <div><div class="trust-num">850+</div><div class="trust-label">Geïnstalleerde airco's</div></div>
+    <div><div class="trust-num">10+</div><div class="trust-label">Jaar ervaring</div></div>
+    <div><div class="trust-num">24u</div><div class="trust-label">Snelle reactie</div></div>
+  </div>
+</section>
+
+<section id="over">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <span class="label">Over Robin Peak Airco's</span>
+        <h2>Persoonlijk vakmanschap, geen onderaannemers</h2>
+        <p>U krijgt bij ons altijd dezelfde monteur aan de deur, van het eerste bezoek tot de jaarlijkse servicebeurt. Geen grote organisatie met wisselende gezichten, maar één aanspreekpunt die uw situatie kent en meedenkt over de beste oplossing voor uw woning of bedrijfspand.</p>
+        <p>Wij zijn F-gassen gecertificeerd en werken uitsluitend met A-merken zoals Daikin, Mitsubishi en Toshiba. Elke installatie wordt ingeregeld op uw woning: van geluidsarme plaatsing van de buitenunit tot een strak afgewerkt leidingtracé. Zo bent u verzekerd van lage energiekosten, stille werking en een systeem dat 15+ jaar meegaat.</p>
+      </div>
+      <div class="about-img fade-in delay-1">
+        <img src="https://images.pexels.com/photos/29206488/pexels-photo-29206488.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Monteur bezig met airco-installatie">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="diensten" id="diensten">
+  <div class="container">
+    <div style="text-align:center;max-width:700px;margin:0 auto" class="fade-in">
+      <span class="label">Onze diensten</span>
+      <h2>Alles rond uw airco onder één dak</h2>
+    </div>
+    <div class="diensten-grid">
+      <div class="dienst-card fade-in">
+        <div class="dienst-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="12" rx="2"/><line x1="6" y1="20" x2="6" y2="16"/><line x1="18" y1="20" x2="18" y2="16"/><line x1="6" y1="10" x2="18" y2="10"/></svg>
+        </div>
+        <h3>Airco installatie</h3>
+        <p>Een compleet werkend systeem binnen één werkdag geïnstalleerd, inclusief inregeling en uitleg. U kiest vrijblijvend samen met ons het juiste vermogen en merk voor uw ruimte.</p>
+      </div>
+      <div class="dienst-card fade-in delay-1">
+        <div class="dienst-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3>Onderhoud & service</h3>
+        <p>Jaarlijks onderhoud dat uw stroomverbruik tot 25% lager houdt en storingen voorkomt. U krijgt na elke beurt een duidelijk rapport en advies voor het komende seizoen.</p>
+      </div>
+      <div class="dienst-card fade-in delay-2">
+        <div class="dienst-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3>Storing & reparatie</h3>
+        <p>Binnen 24 uur ter plaatse bij een defect, met direct de meest voorkomende onderdelen in de bus. Zo staat uw airco snel weer te draaien, ook in het hoogseizoen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <div style="text-align:center;max-width:700px;margin:0 auto" class="fade-in">
+      <span class="label">Klanten aan het woord</span>
+      <h2>Wat klanten over ons zeggen</h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card fade-in">
+        <div class="stars">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p>"Robin was binnen drie dagen ter plaatse met een heldere offerte. De installatie was in één ochtend klaar en de buitenunit is bijna niet te horen vanaf ons terras."</p>
+        <span class="test-name">Martijn de Vries — Tilburg</span>
+      </div>
+      <div class="test-card fade-in delay-1">
+        <div class="stars">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p>"We hadden een storing op een hete zondag en hij kwam dezelfde middag langs. Probleem opgelost en netjes uitgelegd wat er aan de hand was. Top service."</p>
+        <span class="test-name">Sanne Bakker — Eindhoven</span>
+      </div>
+      <div class="test-card fade-in delay-2">
+        <div class="stars">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26
