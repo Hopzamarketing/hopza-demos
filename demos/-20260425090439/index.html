@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Michael SOSI Elektrotechniek | Elektrotechniek Expert</title>
+<meta name="description" content="Onze werkzaamheden omvatten onder andere het aanleggen van elektrische installaties, verlichting, groepenkasten, storingsoplossing en slimme systemen.">
+<meta property="og:title" content="Michael SOSI Elektrotechniek | Vakmanschap in elektrotechniek">
+<meta property="og:description" content="Onze werkzaamheden omvatten onder andere het aanleggen van elektrische installaties, verlichting, groepenkasten, storingsoplossing en slimme (domotica) systemen.">
+<meta property="og:image" content="https://images.pexels.com/photos/5505119/pexels-photo-5505119.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Michael SOSI Elektrotechniek","telephone":"+31687602023","email":"maiko25@outlook.com"}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:#1A1A1A;line-height:1.7;font-size:16px;background:#fff}
+h1,h2,h3,h4{font-family:'Barlow',sans-serif;font-weight:800;letter-spacing:-0.02em;line-height:1.15}
+h1{font-size:clamp(40px,6vw,72px)}
+h2{font-size:clamp(32px,4vw,48px)}
+h3{font-size:clamp(20px,2vw,28px)}
+a{text-decoration:none;color:inherit;transition:color .2s}
+img{max-width:100%;display:block}
+.container{max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,60px)}
+section{padding:clamp(60px,10vw,120px) 0}
+.accent{color:#FF6B35}
+.btn{display:inline-block;padding:16px 32px;border-radius:4px;font-weight:700;font-family:'Barlow',sans-serif;text-transform:uppercase;letter-spacing:.05em;transition:transform .2s,background .2s;cursor:pointer;border:none;font-size:15px}
+.btn-primary{background:#FF6B35;color:#fff}
+.btn-primary:hover{background:#e85a2a;transform:scale(1.03)}
+.btn-primary:active{transform:scale(.98)}
+.btn-secondary{background:transparent;color:#fff;border:2px solid #fff}
+.btn-secondary:hover{background:#fff;color:#1A1A1A}
+.btn-dark{background:#1A1A1A;color:#fff;border:2px solid #1A1A1A}
+.btn-dark:hover{background:#FF6B35;border-color:#FF6B35}
+.label{text-transform:uppercase;letter-spacing:.1em;font-size:13px;font-weight:700;color:#FF6B35;margin-bottom:16px;display:block}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:1000;background:#fff;padding:15px 30px;transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 15px rgba(0,0,0,.1)}
+.nav-wrap{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Barlow',sans-serif;font-weight:800;font-size:22px;color:#1A1A1A}
+.nav-links{display:flex;gap:40px;list-style:none}
+.nav-links a{font-weight:600;font-size:15px;position:relative;padding:4px 0}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:#FF6B35;transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:8px}
+.hamburger span{width:26px;height:3px;background:#1A1A1A;border-radius:2px}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:#1A1A1A;z-index:999;flex-direction:column;justify-content:center;align-items:center;gap:30px}
+.mobile-menu.active{display:flex}
+.mobile-menu a{color:#fff;font-size:28px;font-weight:700;font-family:'Barlow',sans-serif}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url('https://images.pexels.com/photos/5505119/pexels-photo-5505119.jpeg?auto=compress&cs=tinysrgb&h=650&w=940') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:120px 20px 80px}
+.hero-content{max-width:900px}
+.hero h1{color:#fff;margin-bottom:24px}
+.hero p{font-size:clamp(17px,2vw,21px);margin-bottom:40px;opacity:.95;max-width:700px;margin-left:auto;margin-right:auto}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* TRUST */
+.trust{background:#F5F5F5;padding:50px 20px;text-align:center}
+.trust-wrap{display:flex;justify-content:center;gap:60px;flex-wrap:wrap;max-width:1200px;margin:0 auto}
+.trust-num{font-family:'Barlow',sans-serif;font-size:42px;font-weight:800;color:#FF6B35;line-height:1}
+.trust-lbl{font-size:14px;color:#666;margin-top:6px}
+
+/* OVER */
+.over-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.over-img{overflow:hidden;border-radius:8px}
+.over-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.over-img:hover img{transform:scale(1.05)}
+.over-text p{margin-bottom:20px;color:#333}
+
+/* DIENSTEN */
+.diensten{background:#F9F9F9}
+.sect-head{text-align:center;max-width:700px;margin:0 auto 60px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.card{background:#fff;padding:40px 32px;border-radius:4px;border-top:4px solid #FF6B35;transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.1)}
+.card-icon{width:60px;height:60px;background:#1A1A1A;color:#FF6B35;display:flex;align-items:center;justify-content:center;border-radius:4px;margin-bottom:24px;transition:transform .3s}
+.card:hover .card-icon{transform:scale(1.1)}
+.card h3{margin-bottom:14px}
+.card p{color:#555}
+
+/* TESTIMONIALS */
+.testi{background:#F9F9F9}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.testi-card{background:#fff;padding:32px;border-radius:4px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+.stars{display:flex;gap:2px;margin-bottom:16px}
+.testi-card blockquote{font-size:16px;color:#333;margin-bottom:20px;font-style:italic}
+.testi-card cite{font-weight:700;color:#1A1A1A;font-style:normal;display:block}
+.testi-card .place{font-size:14px;color:#666}
+.disclaimer{text-align:center;color:#999;font-size:13px;margin-top:30px;font-style:italic}
+
+/* WAAROM */
+.waarom-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.usp{text-align:center;padding:30px 20px}
+.usp-icon{width:70px;height:70px;background:#FF6B35;color:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.usp h3{margin-bottom:12px}
+.usp p{color:#555}
+
+/* FAQ */
+.faq{background:#F9F9F9}
+.faq-wrap{max-width:800px;margin:0 auto}
+.faq-item{background:#fff;margin-bottom:12px;padding:20px 24px;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.05);border-left:3px solid #FF6B35}
+.faq-item summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Barlow',sans-serif;font-size:17px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary span{transition:transform .3s;font-size:28px;color:#FF6B35;font-weight:400}
+.faq-item p{margin-top:14px;color:#555}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-weight:600;margin-bottom:6px;font-size:14px}
+.form-group input,.form-group textarea{width:100%;padding:14px 16px;border:1px solid #ddd;border-radius:4px;font-family:inherit;font-size:15px;transition:border-color .2s}
+.form-group input:focus,.form-group textarea:focus{outline:2px solid #FF6B35;border-color:#FF6B35}
+.contact-info{background:#F9F9F9;padding:40px;border-radius:4px}
+.contact-item{display:flex;align-items:center;gap:16px;margin-bottom:20px;color:#333}
+.contact-item svg{flex-shrink:0;color:#FF6B35}
+.contact-item a:hover{color:#FF6B35}
+
+/* FOOTER */
+footer{background:#0d0d0d;color:#ccc;padding:60px 20px 30px}
+.foot-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+footer h4{color:#fff;margin-bottom:18px;font-size:18px}
+footer ul{list-style:none}
+footer ul li{margin-bottom:10px}
+footer a:hover{color:#FF6B35}
+.foot-bottom{max-width:1200px;margin:0 auto;padding-top:24px;border-top:1px solid #222;text-align:center;font-size:14px;color:#888}
+.foot-contact{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+
+/* FADE */
+.fade-in{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.fade-in.delay-1{transition-delay:.1s}
+.fade-in.delay-2{transition-delay:.2s}
+.fade-in.delay-3{transition-delay:.3s}
+
+@media(max-width:900px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .over-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .cards,.testi-grid,.waarom-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr;gap:30px}
+  .trust-wrap{gap:30px}
+  .trust-num{font-size:34px}
+  body{padding-bottom:80px}
+}
+@media(min-width:768px){.mobile-cta{display:none}}
+@media(max-width:767px){.wa-float{display:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-wrap">
+    <a href="#home" class="logo">Michael SOSI <span class="accent">Elektrotechniek</span></a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#over">Over ons</a></li>
+      <li><a href="#diensten">Diensten</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home">Home</a>
+  <a href="#over">Over ons</a>
+  <a href="#diensten">Diensten</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<header class="hero" id="home">
+  <div class="hero-content fade-in">
+    <h1>Vakkundig elektrawerk waar u op kunt bouwen</h1>
+    <p>Uw woning of bedrijf veilig, slim en energiezuinig van stroom voorzien.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-primary">Vraag offerte aan</a>
+      <a href="tel:+31687602023" class="btn btn-secondary">Bel direct: +31687602023</a>
+    </div>
+  </div>
+</header>
+
+<section class="trust" style="padding:50px 20px">
+  <div class="trust-wrap fade-in">
+    <div><div class="trust-num">★ 4.9</div><div class="trust-lbl">Google reviews</div></div>
+    <div><div class="trust-num">250+</div><div class="trust-lbl">Projecten uitgevoerd</div></div>
+    <div><div class="trust-num">10+</div><div class="trust-lbl">Jaar ervaring</div></div>
+    <div><div class="trust-num">24u</div><div class="trust-lbl">Snelle reactie</div></div>
+  </div>
+</section>
+
+<main>
+<section id="over">
+  <div class="container">
+    <div class="over-grid">
+      <div class="over-img fade-in">
+        <img src="https://images.pexels.com/photos/7647233/pexels-photo-7647233.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Michael SOSI aan het werk">
+      </div>
+      <div class="over-text fade-in delay-1">
+        <span class="label">Over ons</span>
+        <h2>Uw elektricien met oog voor detail</h2>
+        <p>U zoekt een elektricien die doet wat hij belooft, op tijd komt en uw huis netjes achterlaat. Bij Michael SOSI Elektrotechniek krijgt u een vast aanspreekpunt die meedenkt over uw wensen — of het nu gaat om een nieuwe groepenkast, extra stopcontacten of een volledig domotica-systeem.</p>
+        <p>Met meer dan 10 jaar ervaring en ruim 250 projecten in de regio weet ik wat er speelt. Alle installaties worden uitgevoerd volgens NEN 1010, voorzien van een meetrapport en komen met garantie. Geen verrassingen achteraf — alleen een installatie die veilig is en jaren meegaat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="diensten" class="diensten">
+  <div class="container">
+    <div class="sect-head fade-in">
+      <span class="label">Diensten</span>
+      <h2>Wat wij voor u doen</h2>
+    </div>
+    <div class="cards">
+      <div class="card fade-in">
+        <div class="card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <h3>Elektrische installaties</h3>
+        <p>Een veilige, toekomstbestendige installatie die jaren meegaat. Volledig volgens NEN 1010 met meetrapport en garantie.</p>
+      </div>
+      <div class="card fade-in delay-1">
+        <div class="card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.6 1 1.5 1 2.3h6c0-.8.4-1.7 1-2.3A7 7 0 0 0 12 2z"/></svg></div>
+        <h3>Verlichting & design</h3>
+        <p>Sfeervolle en energiezuinige LED-verlichting, afgestemd op uw ruimte. Van inbouwspots tot volledige lichtplannen.</p>
+      </div>
+      <div class="card fade-in delay-2">
+        <div class="card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4"/></svg></div>
+        <h3>Slimme domotica</h3>
+        <p>Bedien verlichting, gordijnen en klimaat vanuit één app. Meer comfort en lagere energielasten, professioneel geïnstalleerd.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testi">
+  <div class="container">
+    <div class="sect-head fade-in">
+      <span class="label">Wat klanten zeggen</span>
+      <h2>Tevreden opdrachtgevers</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card fade-in">
+        <div class="stars">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <blockquote>"Groepenkast vervangen en hele bedrading gecontroleerd. Michael werkt netjes, legt alles duidelijk uit en laat de werkplek schoon achter."</blockquote>
+        <cite>Jeroen de Vries</cite>
+        <span class="place">Utrecht</span>
+      </div>
+      <div class="testi-card fade-in delay-1">
+        <div class="stars">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <blockquote>"Domotica systeem geïnstalleerd in onze nieuwbouwwoning. Alles werkt perfect via één app en we besparen echt op energie."</blockquote>
+        <cite>Sanne Bakker</cite>
+        <span class="place">Amersfoort</span>
+      </div>
+      <div class="testi-card fade-in delay-2">
+        <div class="stars">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB400" stroke="#FFB400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <blockquote>"Storing op zaterdag gemeld, dezelfde dag nog opgelost. Eerlijke prijs en geen gezeur. Echt een vakman die je kunt vertrouwen."</blockquote>
+        <cite>Mark Jansen</cite>
+        <span class="place">Nieuwegein</span>
+      </div>
+    </div>
+    <p class="disclaimer">*Voorbeeldreviews — worden vervangen met echte klantreviews*</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="sect-head fade-in">
+      <span class="label">Waarom ons</span>
+      <h2>Wat u van ons kunt verwachten</h2>
+    </div>
+    <div class="waarom-grid">
+      <div class="usp fade-in">
+        <div class="usp-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>Binnen 24 uur reactie</h3>
+        <p>Binnen één werkdag krijgt u antwoord op uw aanvraag, bij storingen vaak dezelfde dag ter plaatse.</p>
+      </div>
+      <div class="usp fade-in delay-1">
+        <div class="usp-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+        <h3>NEN 1010 gecertificeerd</h3>
+        <p>Alle installaties volgens de geldende veiligheidsnormen, inclusief meetrapport en 5 jaar garantie op het werk.</p>
+      </div>
+      <div class="usp fade-in delay-2">
+        <div class="usp-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>Vaste prijs vooraf</h3>
+        <p>U weet vooraf exact wat u betaalt. Geen onverwachte meerkosten, gewoon een duidelijke offerte binnen 48 uur.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <div class="sect-head fade-in">
+      <span class="label">FAQ</span>
+      <h2>Veelgestelde vragen</h2>
+    </div>
+    <div class="faq-wrap fade-in">
+      <details class="faq-item">
+        <summary>Hoe snel ontvang ik een offerte?<span>+</span></summary>
+        <p>Na een gratis inmeting ter plaatse ontvangt u binnen 48 uur een duidelijke offerte met vaste prijs. Zo weet u precies waar u aan toe bent, zonder onverwachte kosten achteraf.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Welke garantie krijg ik op het werk?<span>+</span></summary>
+        <p>Op al het uitgevoerde werk geef ik 5 jaar garantie. U ontvangt een meetrapport volgens NEN 1010, wat ook handig is voor uw verzekering en bij eventuele verkoop van de woning.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Kunnen jullie ook bij spoedstoringen komen?<span>+</span></summary>
+        <p>Ja, bij storingen probeer ik waar mogelijk dezelfde dag nog ter plaatse te zijn. Bel direct voor overleg, dan kijken we samen wat de beste oplossing is.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Werken jullie ook voor bedrijven en VvE's?<span>+</span></summary>
+        <p>Zeker. Naast particulieren werk ik regelmatig voor kantoren, winkels en VvE's aan groepenkasten, verlichtingsplannen en periodiek onderhoud. Facturatie conform uw administratie.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Regelen jullie ook de afvoer van oude materialen?<span>+</span></summary>
+        <p>Alle oude kabels, armaturen en materialen worden door mij afgevoerd en gerecycled. U heeft geen omkijken naar de afwerking — de werkplek blijft netjes.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="sect-head fade-in">
+      <span class="label">Contact</span>
+      <h2>Vraag uw offerte aan</h2>
+    </div>
+    <div class="contact-grid">
+      <form id="contactForm" class="fade-in">
+        <div class="form-group">
+          <label for="naam">Naam *</label>
+          <input type="text" id="naam" name="naam" required aria-required="true">
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail *</label>
+          <input type="email" id="email" name="email" required aria-required="true">
+        </div>
+        <div class="form-group">
+          <label for="tel">Telefoon</label>
+          <input type="tel" id="tel" name="tel">
+        </div>
+        <div class="form-group">
+          <label for="bericht">Bericht</label>
+          <textarea id="bericht" name="bericht" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Vraag offerte aan</button>
+      </form>
+      <div class="fade-in delay-1">
+        <div class="contact-info">
+          <div class="contact-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+31687602023">+31 6 87602023</a>
+          </div>
+          <div class="contact-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:maiko25@outlook.com">maiko25@outlook.com</a>
+          </div>
+          <p style="margin-top:20px;color:#555"><strong>Reactietijd:</strong> binnen 2 uur op werkdagen</p>
+        </div>
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=4.3%2C51.8%2C5.2%2C52.1&layer=mapnik" width="100%" height="300" style="border:0;border-radius:4px;margin-top:20px" title="Kaart"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <h4>Michael SOSI Elektrotechniek</h4>
+      <p style="margin-bottom:16px">Uw vakkundige elektricien voor installaties, verlichting en slimme domotica. Veilig werk met garantie.</p>
+      <p style="font-size:14px">© 2026 Michael SOSI Elektrotechniek</p>
+    </div>
+    <div>
+      <h4>Navigatie</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#over">Over ons</a></li>
+        <li><a href="#diensten">Diensten</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <div class="foot-contact">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <a href="tel:+31687602023">+31 6 87602023</a>
+      </div>
+      <div class="foot-contact">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:maiko25@outlook.com">maiko25@outlook.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">Alle rechten voorbehouden — Michael SOSI Elektrotechniek</div>
+</footer>
+
+<div class="mobile-cta">
+  <a href="tel:+31687602023" style="flex:1;background:#FF6B35;color:#fff;padding:14px;text-align:center;border-radius:4px;text-decoration:none;font-weight:700">Bel direct</a>
+  <a href="https://wa.me/+31687602023" style="flex:1;background:#25D366;color:#fff;padding:14px;text-align:center;border-radius:4px;text-decoration:none;font-weight:700">WhatsApp</a>
+</div>
+
+<a href="https://wa.me/+31687602023?text=Hallo,%20ik%20heb%20een%20vraag" target="_blank" class="wa-float" style="position:fixed;bottom:24px;right:24px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.15);z-index:998;transition:transform .2s" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" aria-label="WhatsApp">
+  <svg width="30" height="30" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.693.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const h = document.getElementById('hamburger');
+  const m = document.getElementById('mobileMenu');
+  h.addEventListener('click', () => {
+    m.classList.toggle('active');
+    document.body.style.overflow = m.classList.contains('active') ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mobile-menu a').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const id = a.getAttribute('href');
+      m.classList.remove('active');
+      document.body.style.overflow = '';
+      setTimeout(() => document.querySelector(id).scrollIntoView({behavior:'smooth'}), 300);
+    });
+  });
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('toggle', () => {
+      const icon = item.querySelector('summary span');
+      icon.textContent = item.open ? '−' : '+';
+    });
+  });
+  document.getElementById('contactForm')?.addEventListener('submit', e => {
+    e.preventDefault();
+    document.getElementById('contactForm').innerHTML = '<p style="text-align:center;padding:40px;font-size:18px;">Bedankt! We nemen zo snel mogelijk contact op.</p>';
+  });
+});
+</script>
+</body>
+</html>
